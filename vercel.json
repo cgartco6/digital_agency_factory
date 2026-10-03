@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "core_mesh/router.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "ui_command_center/app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "core_mesh/router.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "ui_command_center/app.py"
+    }
+  ]
+}
